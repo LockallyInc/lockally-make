@@ -1,0 +1,9 @@
+[
+	{
+		"name": "id",
+		"type": "text",
+		"label": "Lockally message id",
+		"required": true,
+		"help": "The id a Send Email module returned. Needs the send:read permission."
+	}
+]

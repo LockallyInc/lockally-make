@@ -1,0 +1,14 @@
+{
+	"url": "/v1/suppressions/{{encodeURL(parameters.email)}}",
+	"method": "GET",
+	"response": {
+		"output": "{{body}}",
+		"valid": "{{statusCode != 404}}",
+		"error": {
+			"404": {
+				"type": "DataError",
+				"message": "That address is not on the suppression list."
+			}
+		}
+	}
+}

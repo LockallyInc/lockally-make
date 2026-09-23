@@ -1,0 +1,19 @@
+{
+	"url": "https://api.lockally.com/v1/auth/whoami",
+	"method": "GET",
+	"headers": {
+		"Authorization": "Bearer {{parameters.apiKey}}"
+	},
+	"response": {
+		"metadata": {
+			"type": "text",
+			"value": "{{ifempty(body.tenant.name, body.tenant.slug)}} ({{ifempty(body.key.label, 'API key')}})"
+		},
+		"error": {
+			"message": "[{{statusCode}}] {{ifempty(body.detail, body.title, 'Lockally did not accept that API key')}}. Create one in the Lockally console under API keys; it starts with lk_live_."
+		}
+	},
+	"log": {
+		"sanitize": ["request.headers.authorization"]
+	}
+}

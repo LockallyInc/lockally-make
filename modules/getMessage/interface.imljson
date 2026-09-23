@@ -1,0 +1,11 @@
+[
+	{ "name": "id", "type": "text", "label": "Lockally message id" },
+	{ "name": "message_id", "type": "text", "label": "Internet message ID" },
+	{ "name": "sender", "type": "text", "label": "From" },
+	{ "name": "recipients", "type": "array", "label": "Recipients", "spec": { "type": "text" } },
+	{ "name": "subject", "type": "text", "label": "Subject" },
+	{ "name": "status", "type": "text", "label": "Status" },
+	{ "name": "bounce_reason", "type": "text", "label": "Bounce reason" },
+	{ "name": "queued_at", "type": "date", "label": "Queued at" },
+	{ "name": "updated_at", "type": "date", "label": "Last updated" }
+]

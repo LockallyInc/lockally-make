@@ -1,0 +1,45 @@
+[
+	{ "name": "from", "type": "email", "label": "From", "required": true, "help": "An address on a domain you have verified in Lockally." },
+	{
+		"name": "to",
+		"type": "array",
+		"label": "To",
+		"required": true,
+		"spec": { "name": "value", "type": "email", "label": "Address" }
+	},
+	{
+		"name": "templateId",
+		"type": "select",
+		"label": "Template",
+		"required": true,
+		"options": { "store": "rpc://listTemplates" },
+		"help": "Templates are managed in the Lockally console. Listing them needs the templates:read permission."
+	},
+	{
+		"name": "variables",
+		"type": "collection",
+		"label": "Template values",
+		"help": "One item per placeholder in the template. A template that says {{first_name}} takes an item named first_name.",
+		"spec": []
+	},
+	{
+		"name": "cc",
+		"type": "array",
+		"label": "CC",
+		"spec": { "name": "value", "type": "email", "label": "Address" }
+	},
+	{
+		"name": "bcc",
+		"type": "array",
+		"label": "BCC",
+		"spec": { "name": "value", "type": "email", "label": "Address" }
+	},
+	{ "name": "sendAt", "type": "date", "label": "Send at", "help": "Leave empty to send now. Up to 30 days ahead." },
+	{
+		"name": "unsubscribe",
+		"type": "boolean",
+		"label": "Marketing or opt-in email",
+		"default": false,
+		"help": "Turn on for mail people signed up for. Lockally then adds a one-click unsubscribe header and skips anyone who unsubscribed."
+	}
+]

@@ -1,0 +1,6 @@
+[
+	{ "name": "id", "type": "text", "label": "Lockally message id" },
+	{ "name": "message_id", "type": "text", "label": "Internet message ID" },
+	{ "name": "status", "type": "text", "label": "Status" },
+	{ "name": "thread_id", "type": "text", "label": "Thread ID" }
+]

@@ -1,0 +1,14 @@
+{
+	"output": {
+		"id": "{{body.id}}",
+		"event": "{{body.type}}",
+		"occurred_at": "{{formatDate(parseDate(body.created, 'X'), 'YYYY-MM-DDTHH:mm:ss[Z]', 'UTC')}}",
+		"mailbox": "{{body.data.mailbox}}",
+		"data": "{{body.data}}"
+	},
+	"respond": {
+		"status": 200,
+		"type": "json",
+		"body": { "received": true }
+	}
+}

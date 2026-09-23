@@ -1,0 +1,24 @@
+{
+	"url": "/v1/send",
+	"method": "POST",
+	"headers": {
+		"Idempotency-Key": "{{uuid}}"
+	},
+	"body": {
+		"from": "{{parameters.from}}",
+		"to": "{{parameters.to}}",
+		"cc": "{{parameters.cc}}",
+		"bcc": "{{parameters.bcc}}",
+		"subject": "{{parameters.subject}}",
+		"text": "{{parameters.text}}",
+		"html": "{{parameters.html}}",
+		"send_at": "{{parameters.sendAt}}",
+		"unsubscribe": "{{parameters.unsubscribe}}",
+		"attachments": {
+			"{{...}}": "{{map(parameters.attachments, {'filename': 'filename', 'content_type': 'contentType', 'content_base64': 'data'})}}"
+		}
+	},
+	"response": {
+		"output": "{{body}}"
+	}
+}

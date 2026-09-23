@@ -1,0 +1,20 @@
+{
+	"url": "/v1/send",
+	"method": "POST",
+	"headers": {
+		"Idempotency-Key": "{{uuid}}"
+	},
+	"body": {
+		"from": "{{parameters.from}}",
+		"to": "{{parameters.to}}",
+		"cc": "{{parameters.cc}}",
+		"bcc": "{{parameters.bcc}}",
+		"template_id": "{{parameters.templateId}}",
+		"variables": "{{parameters.variables}}",
+		"send_at": "{{parameters.sendAt}}",
+		"unsubscribe": "{{parameters.unsubscribe}}"
+	},
+	"response": {
+		"output": "{{body}}"
+	}
+}

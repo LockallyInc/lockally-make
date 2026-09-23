@@ -1,0 +1,17 @@
+{
+	"url": "/v1/webhooks",
+	"method": "POST",
+	"body": {
+		"url": "{{webhook.url}}",
+		"events": "{{parameters.events}}",
+		"mailboxes": "{{if(parameters.mailbox, split(parameters.mailbox, ','), null)}}"
+	},
+	"response": {
+		"data": {
+			"webhookId": "{{body.id}}"
+		},
+		"error": {
+			"message": "[{{statusCode}}] {{ifempty(body.detail, body.title)}}"
+		}
+	}
+}

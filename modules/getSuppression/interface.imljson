@@ -1,0 +1,6 @@
+[
+	{ "name": "email", "type": "text", "label": "Email address" },
+	{ "name": "reason", "type": "text", "label": "Reason" },
+	{ "name": "source", "type": "text", "label": "Added by" },
+	{ "name": "created_at", "type": "date", "label": "Added at" }
+]

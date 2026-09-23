@@ -1,0 +1,9 @@
+[
+	{
+		"name": "apiKey",
+		"type": "text",
+		"label": "API key",
+		"required": true,
+		"help": "From the Lockally console under **API keys**. It starts with `lk_live_`. Give it the permissions this scenario needs: `send:write` to send, `webhooks:read` and `webhooks:write` to watch events, `inboxes:read` to read mailboxes, `inboxes:write` to reply, `suppressions:write` for the suppression list. To watch mail arriving in a mailbox, grant the key that mailbox on the key's own page."
+	}
+]

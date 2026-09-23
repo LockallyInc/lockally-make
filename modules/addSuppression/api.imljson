@@ -1,0 +1,11 @@
+{
+	"url": "/v1/suppressions",
+	"method": "POST",
+	"body": {
+		"email": "{{parameters.email}}",
+		"reason": "{{parameters.reason}}"
+	},
+	"response": {
+		"output": "{{body}}"
+	}
+}

@@ -1,0 +1,4 @@
+[
+	{ "name": "email", "type": "text", "label": "Email address" },
+	{ "name": "removed", "type": "boolean", "label": "Was removed" }
+]

@@ -1,0 +1,61 @@
+[
+	{
+		"name": "from",
+		"type": "email",
+		"label": "From",
+		"required": true,
+		"help": "An address on a domain you have verified in Lockally. Sending from an address Lockally does not own is refused."
+	},
+	{
+		"name": "to",
+		"type": "array",
+		"label": "To",
+		"required": true,
+		"spec": { "name": "value", "type": "email", "label": "Address" }
+	},
+	{ "name": "subject", "type": "text", "label": "Subject" },
+	{
+		"name": "text",
+		"type": "text",
+		"label": "Body (plain text)",
+		"multiline": true,
+		"help": "Fill in this, the HTML body, or both. Sending both lets each mail app show the one it prefers."
+	},
+	{ "name": "html", "type": "text", "label": "Body (HTML)", "multiline": true },
+	{
+		"name": "cc",
+		"type": "array",
+		"label": "CC",
+		"spec": { "name": "value", "type": "email", "label": "Address" }
+	},
+	{
+		"name": "bcc",
+		"type": "array",
+		"label": "BCC",
+		"spec": { "name": "value", "type": "email", "label": "Address" }
+	},
+	{
+		"name": "attachments",
+		"type": "array",
+		"label": "Attachments",
+		"help": "Up to 10 MB each. Map a file from an earlier module.",
+		"spec": [
+			{ "name": "filename", "type": "filename", "label": "File name", "required": true },
+			{ "name": "data", "type": "buffer", "label": "Data", "required": true },
+			{ "name": "contentType", "type": "text", "label": "Content type", "default": "application/octet-stream" }
+		]
+	},
+	{
+		"name": "sendAt",
+		"type": "date",
+		"label": "Send at",
+		"help": "Leave empty to send now. A time in the future, up to 30 days ahead, schedules it."
+	},
+	{
+		"name": "unsubscribe",
+		"type": "boolean",
+		"label": "Marketing or opt-in email",
+		"default": false,
+		"help": "Turn on for mail people signed up for, such as a newsletter. Lockally then adds a one-click unsubscribe header and skips anyone who unsubscribed. Leave off for transactional mail such as a receipt."
+	}
+]

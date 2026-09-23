@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Every block here is pasted into Make, which will not tell you a file is
+      # malformed until the module misbehaves. Checking the JSON is the one
+      # thing CI can do for this app.
+      - name: Every IMLJSON file parses
+        run: |
+          fail=0
+          for f in $(find . -name '*.imljson'); do
+            python3 -c "import json,sys; json.load(open(sys.argv[1]))" "$f" || { echo "invalid: $f"; fail=1; }
+          done
+          exit $fail
+
+      - name: Every module has its four blocks
+        run: |
+          fail=0
+          for dir in modules/*/; do
+            for block in api parameters interface samples; do
+              # The trigger takes its parameters from the webhook, so it has none of its own.
+              if [ "$block" = "parameters" ] && [ "$dir" = "modules/watchEvents/" ]; then continue; fi
+              [ -f "$dir$block.imljson" ] || { echo "missing: $dir$block.imljson"; fail=1; }
+            done
+          done
+          exit $fail

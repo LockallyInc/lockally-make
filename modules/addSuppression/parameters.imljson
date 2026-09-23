@@ -1,0 +1,16 @@
+[
+	{ "name": "email", "type": "email", "label": "Email address", "required": true },
+	{
+		"name": "reason",
+		"type": "select",
+		"label": "Reason",
+		"default": "manual",
+		"help": "A complaint or a bounce blocks every message to that address. An unsubscribe, or adding it by hand, blocks marketing and opt-in mail while letting transactional mail such as a receipt through.",
+		"options": [
+			{ "label": "Added by hand", "value": "manual" },
+			{ "label": "They unsubscribed", "value": "unsubscribe" },
+			{ "label": "They marked mail as spam", "value": "complaint" },
+			{ "label": "Mail to them bounced", "value": "bounce" }
+		]
+	}
+]

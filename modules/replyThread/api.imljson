@@ -1,0 +1,17 @@
+{
+	"url": "/v1/threads/{{parameters.threadId}}/reply",
+	"method": "POST",
+	"headers": {
+		"Idempotency-Key": "{{uuid}}"
+	},
+	"body": {
+		"to": "{{parameters.to}}",
+		"cc": "{{parameters.cc}}",
+		"subject": "{{parameters.subject}}",
+		"text": "{{parameters.text}}",
+		"html": "{{parameters.html}}"
+	},
+	"response": {
+		"output": "{{body}}"
+	}
+}

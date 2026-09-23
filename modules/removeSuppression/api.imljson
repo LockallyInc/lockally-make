@@ -1,0 +1,10 @@
+{
+	"url": "/v1/suppressions/{{encodeURL(parameters.email)}}",
+	"method": "DELETE",
+	"response": {
+		"output": {
+			"email": "{{parameters.email}}",
+			"removed": true
+		}
+	}
+}

@@ -1,0 +1,15 @@
+{
+	"baseUrl": "https://api.lockally.com",
+	"headers": {
+		"Authorization": "Bearer {{connection.apiKey}}",
+		"User-Agent": "Lockally-Make"
+	},
+	"response": {
+		"error": {
+			"message": "[{{statusCode}}] {{ifempty(body.detail, body.title, body)}}"
+		}
+	},
+	"log": {
+		"sanitize": ["request.headers.authorization"]
+	}
+}

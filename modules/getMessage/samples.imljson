@@ -1,0 +1,10 @@
+{
+	"id": "c9a1f0de-6b32-4b58-9a77-5f0b1d2e3c44",
+	"message_id": "<7f2c@lockally.com>",
+	"sender": "hello@yourdomain.com",
+	"recipients": ["customer@example.com"],
+	"subject": "Your order is on its way",
+	"status": "delivered",
+	"queued_at": "2026-09-22T10:00:00Z",
+	"updated_at": "2026-09-22T10:00:07Z"
+}

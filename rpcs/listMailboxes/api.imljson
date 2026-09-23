@@ -1,0 +1,11 @@
+{
+	"url": "/v1/inboxes",
+	"method": "GET",
+	"response": {
+		"iterate": "{{body.inboxes}}",
+		"output": {
+			"label": "{{item.email}}",
+			"value": "{{item.email}}"
+		}
+	}
+}

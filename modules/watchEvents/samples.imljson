@@ -1,0 +1,18 @@
+{
+	"id": "evt_9b7c1e6a-2f44-4f8e-9a1d-4a8e1d7c0b32",
+	"event": "message.received",
+	"occurred_at": "2026-09-22T10:04:11Z",
+	"mailbox": "sales@yourdomain.com",
+	"data": {
+		"mailbox": "sales@yourdomain.com",
+		"thread_id": "0651e295-acaa-4397-a30b-b3309bff0a6a",
+		"message_id": "f7cc4b17-a74a-4f0d-9b7f-a5886dcb2d4f",
+		"rfc_message_id": "abc123@sender.example.com",
+		"subject": "Order #1042 refund request",
+		"from": "customer@example.com",
+		"to": ["sales@yourdomain.com"],
+		"snippet": "Hi, I'd like to request a refund for...",
+		"has_attachments": false,
+		"received_at": "2026-09-22T10:04:11Z"
+	}
+}

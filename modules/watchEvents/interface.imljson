@@ -1,0 +1,25 @@
+[
+	{ "name": "id", "type": "text", "label": "Event ID" },
+	{ "name": "event", "type": "text", "label": "Event" },
+	{ "name": "occurred_at", "type": "date", "label": "Happened at" },
+	{ "name": "mailbox", "type": "text", "label": "Mailbox" },
+	{
+		"name": "data",
+		"type": "collection",
+		"label": "Event data",
+		"spec": [
+			{ "name": "subject", "type": "text", "label": "Subject" },
+			{ "name": "from", "type": "text", "label": "From" },
+			{ "name": "to", "type": "array", "label": "To", "spec": { "type": "text" } },
+			{ "name": "snippet", "type": "text", "label": "Snippet" },
+			{ "name": "has_attachments", "type": "boolean", "label": "Has attachments" },
+			{ "name": "thread_id", "type": "text", "label": "Thread ID" },
+			{ "name": "message_id", "type": "text", "label": "Message ID" },
+			{ "name": "rfc_message_id", "type": "text", "label": "Internet message ID" },
+			{ "name": "recipient", "type": "text", "label": "Recipient" },
+			{ "name": "bounce_reason", "type": "text", "label": "Bounce reason" },
+			{ "name": "smtp_code", "type": "text", "label": "SMTP status code" },
+			{ "name": "smtp_response", "type": "text", "label": "What the receiving server said" }
+		]
+	}
+]
