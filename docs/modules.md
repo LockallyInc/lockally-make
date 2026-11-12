@@ -10,9 +10,9 @@ are entered.
 arrives, or mail you sent is delivered, bounces, or is marked as spam.
 
 Turning the scenario on creates a webhook in Lockally; turning it off deletes
-it. Watching mail arrive needs the `inboxes:read` permission and, if the key is
-limited to certain mailboxes, a grant for the one being watched. Triggers need a
-plan that includes webhooks.
+it. Watching mail arrive needs the `inboxes:read` permission and a grant for the
+mailbox being watched (on the API Keys page, under the key's Mailboxes). A key
+with no grants sees no mailboxes. Triggers need a plan that includes webhooks.
 
 ## Send Email (action)
 

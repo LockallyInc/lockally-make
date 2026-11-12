@@ -10,7 +10,7 @@ Lockally is business email on your own domain, with a sending API in the same ac
 
 ## Connect Lockally to Make
 
-1. Sign in to the Lockally console and open **API keys**.
+1. Sign in to the Lockally console and open **Tokens**.
 2. Create a key and give it the permissions your scenarios need:
 
    | To do this | The key needs |
@@ -22,7 +22,7 @@ Lockally is business email on your own domain, with a sending API in the same ac
    | Reply in a thread | `inboxes:write` |
    | Add, remove or look up suppressions | `suppressions:read` and `suppressions:write` |
 
-3. To watch new mail or reply in a thread, grant the key the mailboxes it should use, on the key's own page in the console. A key only sees the mailboxes it has been granted. A mailbox also needs agent access switched on to appear in the **Mailbox** list.
+3. To watch new mail or reply in a thread, grant the key the mailboxes it should use: open **API Keys** in the console, find the key, and add each mailbox under **Mailboxes**. A key only sees the mailboxes it has been granted, and with none granted it sees none. A mailbox with agent access turned off, or with end-to-end encryption, cannot be granted, and the console says why.
 4. Copy the key. It starts with `lk_live_` and is shown only once.
 5. In Make, add any Lockally module, click **Create a connection**, and paste the key into **API key**.
 
