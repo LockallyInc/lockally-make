@@ -48,7 +48,7 @@ Lockally is business email on your own domain, with a sending API in the same ac
 ## Good to know
 
 - Each send counts toward your plan's monthly sending allowance. The allowance for each plan is on [lockally.com/pricing](https://lockally.com/pricing/).
-- If a module says the key is missing a permission, edit the key in the Lockally console under **API keys** and add it. You don't need to create a new key.
+- If a module says the key is missing a permission, create a new key with that permission on the **Tokens** page of the Lockally console, then update your Lockally connection in Make with the new key. A key's permissions cannot be changed after it is created. If the old key had mailboxes granted, grant them to the new key too, under its **Mailboxes** on the **API Keys** page.
 
 ## Help
 
