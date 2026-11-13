@@ -1,0 +1,20 @@
+{
+	"url": "https://api.lockally.com{{parameters.url}}",
+	"method": "{{parameters.method}}",
+	"qs": {
+		"{{...}}": "{{toCollection(parameters.qs, 'key', 'value')}}"
+	},
+	"headers": {
+		"Content-Type": "application/json",
+		"{{...}}": "{{toCollection(parameters.headers, 'key', 'value')}}"
+	},
+	"body": "{{parameters.body}}",
+	"type": "text",
+	"response": {
+		"output": {
+			"body": "{{body}}",
+			"headers": "{{headers}}",
+			"statusCode": "{{statusCode}}"
+		}
+	}
+}

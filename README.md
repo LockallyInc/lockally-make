@@ -20,6 +20,7 @@ block here is pasted into, or synced to, the app in Make.
 | Action | Remove from Suppression List | `DELETE /v1/suppressions/{email}` |
 | Search | Get a Sent Message | `GET /v1/messages/{id}` |
 | Search | Get a Suppression | `GET /v1/suppressions?email=` |
+| Universal | Make an API Call | any `https://api.lockally.com` path, with the connection's key |
 
 Two dropdowns are filled by RPCs: the mailbox list from `GET /v1/inboxes`, and
 the template list from `GET /v1/templates`.

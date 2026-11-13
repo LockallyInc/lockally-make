@@ -1,0 +1,5 @@
+{
+	"body": { "data": [{ "id": "26e4696e-dc9d-45c9-96a7-bc96cb55f38c", "name": "Order shipped" }] },
+	"headers": { "content-type": "application/json" },
+	"statusCode": 200
+}
