@@ -14,9 +14,7 @@
 		"html": "{{parameters.html}}",
 		"send_at": "{{parameters.sendAt}}",
 		"unsubscribe": "{{parameters.unsubscribe}}",
-		"attachments": {
-			"{{...}}": "{{map(parameters.attachments, {'filename': 'filename', 'content_type': 'contentType', 'content_base64': 'data'})}}"
-		}
+		"attachments": "{{attachments(parameters.attachments)}}"
 	},
 	"response": {
 		"output": "{{body}}"

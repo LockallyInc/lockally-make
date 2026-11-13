@@ -10,7 +10,7 @@
 		"cc": "{{parameters.cc}}",
 		"bcc": "{{parameters.bcc}}",
 		"template_id": "{{parameters.templateId}}",
-		"variables": "{{parameters.variables}}",
+		"variables": "{{templateVariables(parameters)}}",
 		"send_at": "{{parameters.sendAt}}",
 		"unsubscribe": "{{parameters.unsubscribe}}"
 	},

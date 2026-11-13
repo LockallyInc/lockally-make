@@ -19,7 +19,7 @@ block here is pasted into, or synced to, the app in Make.
 | Action | Add to Suppression List | `POST /v1/suppressions` |
 | Action | Remove from Suppression List | `DELETE /v1/suppressions/{email}` |
 | Search | Get a Sent Message | `GET /v1/messages/{id}` |
-| Search | Get a Suppression | `GET /v1/suppressions/{email}` |
+| Search | Get a Suppression | `GET /v1/suppressions?email=` |
 
 Two dropdowns are filled by RPCs: the mailbox list from `GET /v1/inboxes`, and
 the template list from `GET /v1/templates`.
@@ -31,7 +31,8 @@ base.imljson                     the API host, the Authorization header, error w
 connections/lockally/            the API key, and the call that checks it
 modules/<name>/                  api, parameters, interface, samples
 webhooks/events/                 attach, detach, the payload shape
-rpcs/<name>/                     the dropdowns
+rpcs/<name>/                     the dropdowns, and the template's value fields
+functions/<name>/                custom IML functions (paste code.js)
 docs/                            what each module is for, ready to paste into Make
 ```
 
@@ -49,7 +50,8 @@ what Make shows before the scenario has ever run.
 4. Create each module, choosing the right type (instant trigger, action,
    search), and paste its blocks.
 5. Create the webhook and paste `webhooks/events/`.
-6. Create the two RPCs from `rpcs/`.
+6. Create the three RPCs from `rpcs/`, and the two IML functions from
+   `functions/` (the function name is the folder name).
 
 Make's VS Code extension can sync a local folder with an app, which is quicker
 than pasting. This layout matches what it expects.
@@ -65,6 +67,18 @@ than pasting. This layout matches what it expects.
 * **The mailbox dropdown lists what the key may see.** A key limited to certain
   mailboxes gets exactly those, so the list never offers one the trigger would
   then be refused.
+* **Attachments are encoded by `functions/attachments`.** Make hands a mapped
+  file over as a buffer, and a buffer placed straight in a JSON body arrives as
+  an object, which `/v1/send` refuses. The function turns each one into base64.
+* **A template's placeholders become their own fields.** Choosing a template
+  loads `rpcs/templateValues`, which adds one field per placeholder, named
+  `var_<placeholder>`. `functions/templateVariables` gathers them back into
+  `variables`. A collection whose `spec` is itself an RPC was tried first and
+  failed: Make calls that inner RPC without the connection, so it gets a 401.
+* **Get a Suppression asks the list endpoint, not `/v1/suppressions/{email}`.**
+  Make treats every 4xx as an error, so the 404 that means "not suppressed"
+  would stop the scenario. `GET /v1/suppressions?email=` answers 200 with an
+  empty list instead, and the module returns no bundle.
 * **The key is redacted from logs** through `log.sanitize` in `base.imljson`
   and in the connection.
 

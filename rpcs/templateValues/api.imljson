@@ -1,0 +1,12 @@
+{
+	"url": "/v1/templates/{{encodeURL(parameters.templateId)}}",
+	"method": "GET",
+	"response": {
+		"iterate": "{{body.variables}}",
+		"output": {
+			"name": "var_{{item}}",
+			"label": "Template value: {{item}}",
+			"type": "text"
+		}
+	}
+}

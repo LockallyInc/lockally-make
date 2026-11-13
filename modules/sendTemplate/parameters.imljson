@@ -12,15 +12,8 @@
 		"type": "select",
 		"label": "Template",
 		"required": true,
-		"options": { "store": "rpc://listTemplates" },
+		"options": { "store": "rpc://listTemplates", "nested": "rpc://templateValues" },
 		"help": "Templates are managed in the Lockally console. Listing them needs the templates:read permission."
-	},
-	{
-		"name": "variables",
-		"type": "collection",
-		"label": "Template values",
-		"help": "One item per placeholder in the template. A template that says {{first_name}} takes an item named first_name.",
-		"spec": []
 	},
 	{
 		"name": "cc",
