@@ -5,15 +5,7 @@
 		"Idempotency-Key": "{{uuid}}"
 	},
 	"body": {
-		"from": "{{parameters.from}}",
-		"to": "{{parameters.to}}",
-		"cc": "{{parameters.cc}}",
-		"bcc": "{{parameters.bcc}}",
-		"subject": "{{parameters.subject}}",
-		"text": "{{parameters.text}}",
-		"html": "{{parameters.html}}",
-		"send_at": "{{parameters.sendAt}}",
-		"unsubscribe": "{{parameters.unsubscribe}}",
+		"{{...}}": "{{omit(parameters, 'attachments')}}",
 		"attachments": "{{attachments(parameters.attachments)}}"
 	},
 	"response": {

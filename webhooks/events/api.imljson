@@ -1,14 +1,17 @@
 {
 	"output": {
-		"id": "{{body.id}}",
-		"event": "{{body.type}}",
-		"occurred_at": "{{formatDate(parseDate(body.created, 'X'), 'YYYY-MM-DDTHH:mm:ss[Z]', 'UTC')}}",
-		"mailbox": "{{body.data.mailbox}}",
-		"data": "{{body.data}}"
+		"{{...}}": "{{body}}",
+		"created": "{{parseDate(body.created, 'X')}}",
+		"data": {
+			"{{...}}": "{{body.data}}",
+			"received_at": "{{if(body.data.received_at, parseDate(body.data.received_at, 'YYYY-MM-DDTHH:mm:ssZ'))}}"
+		}
 	},
 	"respond": {
 		"status": 200,
 		"type": "json",
-		"body": { "received": true }
+		"body": {
+			"received": true
+		}
 	}
 }

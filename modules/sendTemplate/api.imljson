@@ -11,7 +11,7 @@
 		"bcc": "{{parameters.bcc}}",
 		"template_id": "{{parameters.templateId}}",
 		"variables": "{{templateVariables(parameters)}}",
-		"send_at": "{{parameters.sendAt}}",
+		"send_at": "{{parameters.send_at}}",
 		"unsubscribe": "{{parameters.unsubscribe}}"
 	},
 	"response": {

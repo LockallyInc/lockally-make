@@ -5,19 +5,36 @@
 		"label": "Events",
 		"required": true,
 		"multiple": true,
-		"default": ["message.received"],
+		"default": [
+			"message.received"
+		],
 		"options": [
-			{ "label": "New email received", "value": "message.received" },
-			{ "label": "Email delivered", "value": "delivery.delivered" },
-			{ "label": "Email bounced", "value": "delivery.bounced" },
-			{ "label": "Spam complaint", "value": "delivery.complaint" }
+			{
+				"label": "New email received",
+				"value": "message.received"
+			},
+			{
+				"label": "Email delivered",
+				"value": "delivery.delivered"
+			},
+			{
+				"label": "Email bounced",
+				"value": "delivery.bounced"
+			},
+			{
+				"label": "Spam complaint",
+				"value": "delivery.complaint"
+			}
 		]
 	},
 	{
-		"name": "mailbox",
+		"name": "mailboxes",
 		"type": "select",
-		"label": "Mailbox",
-		"options": { "store": "rpc://listMailboxes" },
-		"help": "For new mail only. Leave empty for every mailbox this API key can see, which for a key limited to certain mailboxes means exactly those."
+		"label": "Mailboxes",
+		"options": {
+			"store": "rpc://listMailboxes"
+		},
+		"help": "For new mail only. Leave empty for every mailbox this API key can see, which for a key limited to certain mailboxes means exactly those.",
+		"multiple": true
 	}
 ]

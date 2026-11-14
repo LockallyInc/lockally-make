@@ -12,15 +12,15 @@ block here is pasted into, or synced to, the app in Make.
 
 | Kind | Module | Endpoint |
 |---|---|---|
-| Instant trigger | Watch Events | `POST /v1/webhooks`, then Lockally posts to the scenario |
-| Action | Send Email | `POST /v1/send` |
-| Action | Send Email from Template | `POST /v1/send` with `template_id` |
-| Action | Reply to Email Thread | `POST /v1/threads/{id}/reply` |
-| Action | Add to Suppression List | `POST /v1/suppressions` |
-| Action | Remove from Suppression List | `DELETE /v1/suppressions/{email}` |
-| Search | Get a Sent Message | `GET /v1/messages/{id}` |
-| Search | Get a Suppression | `GET /v1/suppressions?email=` |
-| Universal | Make an API Call | any `https://api.lockally.com` path, with the connection's key |
+| Instant trigger | Watch events | `POST /v1/webhooks`, then Lockally posts to the scenario |
+| Action | Send an email | `POST /v1/send` |
+| Action | Send an email from a template | `POST /v1/send` with `template_id` |
+| Action | Reply to an email thread | `POST /v1/threads/{id}/reply` |
+| Action | Add to suppression list | `POST /v1/suppressions` |
+| Action | Remove from suppression list | `DELETE /v1/suppressions/{email}` |
+| Action | Get a sent message (`getSentMessage`) | `GET /v1/messages/{id}` |
+| Action | Get a suppression (`checkSuppression`) | `GET /v1/suppressions?email=` |
+| Universal | Make an API call | any `https://api.lockally.com` path, with the connection's key |
 
 Two dropdowns are filled by RPCs: the mailbox list from `GET /v1/inboxes`, and
 the template list from `GET /v1/templates`.
@@ -76,10 +76,14 @@ than pasting. This layout matches what it expects.
   `var_<placeholder>`. `functions/templateVariables` gathers them back into
   `variables`. A collection whose `spec` is itself an RPC was tried first and
   failed: Make calls that inner RPC without the connection, so it gets a 401.
-* **Get a Suppression asks the list endpoint, not `/v1/suppressions/{email}`.**
+* **Get a suppression asks the list endpoint, not `/v1/suppressions/{email}`.**
   Make treats every 4xx as an error, so the 404 that means "not suppressed"
   would stop the scenario. `GET /v1/suppressions?email=` answers 200 with an
-  empty list instead, and the module returns no bundle.
+  empty list instead, and the module returns one bundle with `suppressed: false`.
+  It is an action, not a search: Make's review asked for get-one modules to be
+  actions. The old search modules (`getMessage`, `getSuppression`) stay in the
+  app, hidden and labelled [DO NOT USE], because a published module cannot be
+  deleted.
 * **The key is redacted from logs** through `log.sanitize` in `base.imljson`
   and in the connection.
 

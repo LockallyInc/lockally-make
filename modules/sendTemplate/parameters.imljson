@@ -1,33 +1,59 @@
 [
-	{ "name": "from", "type": "email", "label": "From", "required": true, "help": "An address on a domain you have verified in Lockally." },
+	{
+		"name": "from",
+		"type": "email",
+		"label": "From",
+		"required": true,
+		"help": "An address on a domain you have verified in Lockally."
+	},
 	{
 		"name": "to",
 		"type": "array",
 		"label": "To",
 		"required": true,
-		"spec": { "name": "value", "type": "email", "label": "Address" }
+		"spec": {
+			"name": "value",
+			"type": "email",
+			"label": "Address"
+		}
 	},
 	{
 		"name": "templateId",
 		"type": "select",
 		"label": "Template",
 		"required": true,
-		"options": { "store": "rpc://listTemplates", "nested": "rpc://templateValues" },
+		"options": {
+			"store": "rpc://listTemplates",
+			"nested": "rpc://templateValues"
+		},
 		"help": "Templates are managed in the Lockally console. Listing them needs the templates:read permission."
 	},
 	{
 		"name": "cc",
 		"type": "array",
 		"label": "CC",
-		"spec": { "name": "value", "type": "email", "label": "Address" }
+		"spec": {
+			"name": "value",
+			"type": "email",
+			"label": "Address"
+		}
 	},
 	{
 		"name": "bcc",
 		"type": "array",
 		"label": "BCC",
-		"spec": { "name": "value", "type": "email", "label": "Address" }
+		"spec": {
+			"name": "value",
+			"type": "email",
+			"label": "Address"
+		}
 	},
-	{ "name": "sendAt", "type": "date", "label": "Send at", "help": "Leave empty to send now. Up to 30 days ahead." },
+	{
+		"name": "send_at",
+		"type": "date",
+		"label": "Send at",
+		"help": "Leave empty to send now. Up to 30 days ahead."
+	},
 	{
 		"name": "unsubscribe",
 		"type": "boolean",

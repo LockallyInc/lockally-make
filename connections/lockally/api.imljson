@@ -10,10 +10,12 @@
 			"value": "{{ifempty(body.tenant.name, body.tenant.slug)}} ({{ifempty(body.key.label, 'API key')}})"
 		},
 		"error": {
-			"message": "[{{statusCode}}] {{ifempty(body.detail, body.title, 'Lockally did not accept that API key')}}. Create one in the Lockally console under API keys; it starts with lk_live_."
+			"message": "[{{statusCode}}] {{ifempty(body.detail, ifempty(body.title, 'Lockally did not accept that API key'))}}. Create one in the Lockally console under API keys; it starts with lk_live_."
 		}
 	},
 	"log": {
-		"sanitize": ["request.headers.authorization"]
+		"sanitize": [
+			"request.headers.authorization"
+		]
 	}
 }

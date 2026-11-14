@@ -1,0 +1,9 @@
+[
+	{
+		"name": "id",
+		"type": "text",
+		"label": "Message ID",
+		"required": true,
+		"help": "The Message ID a Send an email module returned. Needs the send:read permission."
+	}
+]

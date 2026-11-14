@@ -1,11 +1,11 @@
 {
 	"url": "/v1/suppressions",
 	"method": "POST",
-	"body": {
-		"email": "{{parameters.email}}",
-		"reason": "{{parameters.reason}}"
-	},
+	"body": "{{parameters}}",
 	"response": {
-		"output": "{{body}}"
+		"output": {
+			"{{...}}": "{{body}}",
+			"created_at": "{{if(body.created_at, parseDate(body.created_at, 'YYYY-MM-DDTHH:mm:ssZ'))}}"
+		}
 	}
 }
