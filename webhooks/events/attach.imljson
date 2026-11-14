@@ -3,15 +3,17 @@
 	"method": "POST",
 	"body": {
 		"url": "{{webhook.url}}",
-		"events": "{{parameters.events}}",
-		"mailboxes": "{{if(parameters.mailbox, split(parameters.mailbox, ','), null)}}"
+		"{{...}}": "{{parameters}}"
 	},
 	"response": {
 		"data": {
 			"webhookId": "{{body.id}}"
-		},
-		"error": {
-			"message": "[{{statusCode}}] {{ifempty(body.detail, body.title)}}"
 		}
+	},
+	"log": {
+		"sanitize": [
+			"request.headers.authorization",
+			"response.body.signing_secret"
+		]
 	}
 }

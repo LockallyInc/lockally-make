@@ -1,0 +1,11 @@
+{
+	"url": "/v1/messages/{{encodeURL(parameters.id)}}",
+	"method": "GET",
+	"response": {
+		"output": {
+			"{{...}}": "{{omit(body, 'queued_at', 'updated_at')}}",
+			"queued_at": "{{if(body.queued_at, parseDate(body.queued_at, 'YYYY-MM-DDTHH:mm:ssZ'))}}",
+			"updated_at": "{{if(body.updated_at, parseDate(body.updated_at, 'YYYY-MM-DDTHH:mm:ssZ'))}}"
+		}
+	}
+}

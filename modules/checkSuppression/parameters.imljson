@@ -1,0 +1,9 @@
+[
+	{
+		"name": "email",
+		"type": "email",
+		"label": "Email address",
+		"required": true,
+		"help": "Needs the suppressions:read permission."
+	}
+]

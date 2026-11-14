@@ -2,6 +2,7 @@
 	"url": "/v1/inboxes",
 	"method": "GET",
 	"response": {
+		"limit": 500,
 		"iterate": "{{body.inboxes}}",
 		"output": {
 			"label": "{{item.email}}",

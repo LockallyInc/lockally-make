@@ -4,7 +4,7 @@
 		"type": "text",
 		"label": "URL",
 		"required": true,
-		"help": "Enter the part of the URL that comes after `https://api.lockally.com`. For example, `/v1/templates`. Every endpoint is described at https://developers.lockally.com."
+		"help": "Enter a path relative to `https://api.lockally.com/`, without a leading slash. For example, `v1/templates`. Every endpoint is described at https://developers.lockally.com."
 	},
 	{
 		"name": "method",
@@ -13,37 +13,68 @@
 		"required": true,
 		"default": "GET",
 		"options": [
-			{ "label": "GET", "value": "GET" },
-			{ "label": "POST", "value": "POST" },
-			{ "label": "PUT", "value": "PUT" },
-			{ "label": "PATCH", "value": "PATCH" },
-			{ "label": "DELETE", "value": "DELETE" }
+			{
+				"label": "GET",
+				"value": "GET"
+			},
+			{
+				"label": "POST",
+				"value": "POST"
+			},
+			{
+				"label": "PUT",
+				"value": "PUT"
+			},
+			{
+				"label": "PATCH",
+				"value": "PATCH"
+			},
+			{
+				"label": "DELETE",
+				"value": "DELETE"
+			}
 		]
 	},
 	{
 		"name": "headers",
 		"type": "array",
 		"label": "Headers",
-		"help": "You don't have to add the Authorization header; the connection adds it. A POST to /v1/send also needs an Idempotency-Key header with a unique value.",
+		"help": "You don't have to add the Authorization header; the connection adds it. A POST to v1/send also needs an Idempotency-Key header with a unique value.",
 		"spec": {
 			"label": "Header",
 			"type": "collection",
 			"spec": [
-				{ "name": "key", "label": "Key", "type": "text" },
-				{ "name": "value", "label": "Value", "type": "text" }
+				{
+					"name": "key",
+					"label": "Key",
+					"type": "text"
+				},
+				{
+					"name": "value",
+					"label": "Value",
+					"type": "text"
+				}
 			]
 		}
 	},
 	{
 		"name": "qs",
 		"type": "array",
-		"label": "Query String",
+		"label": "Query string",
 		"spec": {
 			"label": "Parameter",
 			"type": "collection",
 			"spec": [
-				{ "name": "key", "label": "Key", "type": "text" },
-				{ "name": "value", "label": "Value", "type": "text" }
+				{
+					"name": "key",
+					"label": "Key",
+					"type": "text"
+				},
+				{
+					"name": "value",
+					"label": "Value",
+					"type": "text"
+				}
 			]
 		}
 	},

@@ -6,10 +6,12 @@
 	},
 	"response": {
 		"error": {
-			"message": "[{{statusCode}}] {{ifempty(body.detail, body.title, body)}}"
+			"message": "[{{statusCode}}] {{ifempty(body.detail, ifempty(body.title, body))}}"
 		}
 	},
 	"log": {
-		"sanitize": ["request.headers.authorization"]
+		"sanitize": [
+			"request.headers.authorization"
+		]
 	}
 }

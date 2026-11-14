@@ -1,0 +1,33 @@
+[
+	{
+		"label": "Emails",
+		"modules": [
+			"sendEmail",
+			"sendTemplate",
+			"replyThread",
+			"getSentMessage",
+			"getMessage"
+		]
+	},
+	{
+		"label": "Events",
+		"modules": [
+			"watchEvents"
+		]
+	},
+	{
+		"label": "Suppressions",
+		"modules": [
+			"addSuppression",
+			"checkSuppression",
+			"removeSuppression",
+			"getSuppression"
+		]
+	},
+	{
+		"label": "Other",
+		"modules": [
+			"makeApiCall"
+		]
+	}
+]

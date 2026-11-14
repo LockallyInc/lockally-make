@@ -4,22 +4,46 @@
 		"type": "text",
 		"label": "Thread ID",
 		"required": true,
-		"help": "From a Watch Events module. Needs the inboxes:write permission and a grant for that mailbox."
+		"help": "From a Watch events module. Needs the inboxes:write permission and a grant for that mailbox."
 	},
-	{ "name": "text", "type": "text", "label": "Reply (plain text)", "multiline": true, "help": "Fill in this, the HTML version, or both." },
-	{ "name": "html", "type": "text", "label": "Reply (HTML)", "multiline": true },
+	{
+		"name": "text",
+		"type": "text",
+		"label": "Reply (plain text)",
+		"multiline": true,
+		"help": "Fill in this, the HTML version, or both."
+	},
+	{
+		"name": "html",
+		"type": "text",
+		"label": "Reply (HTML)",
+		"multiline": true
+	},
 	{
 		"name": "to",
 		"type": "array",
 		"label": "To",
 		"help": "Leave empty to reply to the people already in the conversation.",
-		"spec": { "name": "value", "type": "email", "label": "Address" }
+		"spec": {
+			"name": "value",
+			"type": "email",
+			"label": "Address"
+		}
 	},
 	{
 		"name": "cc",
 		"type": "array",
 		"label": "CC",
-		"spec": { "name": "value", "type": "email", "label": "Address" }
+		"spec": {
+			"name": "value",
+			"type": "email",
+			"label": "Address"
+		}
 	},
-	{ "name": "subject", "type": "text", "label": "Subject", "help": "Leave empty to keep the conversation's own subject." }
+	{
+		"name": "subject",
+		"type": "text",
+		"label": "Subject",
+		"help": "Leave empty to keep the conversation's own subject."
+	}
 ]

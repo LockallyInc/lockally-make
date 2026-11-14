@@ -1,0 +1,17 @@
+{
+	"url": "/v1/suppressions",
+	"method": "GET",
+	"qs": {
+		"email": "{{parameters.email}}",
+		"limit": 1
+	},
+	"response": {
+		"output": {
+			"email": "{{parameters.email}}",
+			"suppressed": "{{length(body.data) > 0}}",
+			"reason": "{{body.data[1].reason}}",
+			"source": "{{body.data[1].source}}",
+			"created_at": "{{if(body.data[1].created_at, parseDate(body.data[1].created_at, 'YYYY-MM-DDTHH:mm:ssZ'))}}"
+		}
+	}
+}
