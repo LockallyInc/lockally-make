@@ -1,9 +1,9 @@
 {
 	"output": {
-		"{{...}}": "{{body}}",
+		"{{...}}": "{{omit(body, 'created', 'data')}}",
 		"created": "{{parseDate(body.created, 'X')}}",
 		"data": {
-			"{{...}}": "{{body.data}}",
+			"{{...}}": "{{omit(body.data, 'received_at')}}",
 			"received_at": "{{if(body.data.received_at, parseDate(body.data.received_at, 'YYYY-MM-DDTHH:mm:ssZ'))}}"
 		}
 	},

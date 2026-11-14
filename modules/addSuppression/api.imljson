@@ -4,7 +4,7 @@
 	"body": "{{parameters}}",
 	"response": {
 		"output": {
-			"{{...}}": "{{body}}",
+			"{{...}}": "{{omit(body, 'created_at')}}",
 			"created_at": "{{if(body.created_at, parseDate(body.created_at, 'YYYY-MM-DDTHH:mm:ssZ'))}}"
 		}
 	}
